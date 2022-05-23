@@ -3,7 +3,7 @@ import Response from "./Response";
 
 function ResponseList({ responses }) {
   return (
-    <div className="bg-white rounded shadow p-4">
+    <div name="responses" className="bg-white rounded shadow p-4">
       <h1 className="text-2xl text-gray-600 font-semibold mb-4">Responses</h1>
       {responses ? (
         responses.map((response) => (

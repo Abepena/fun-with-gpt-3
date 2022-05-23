@@ -2,6 +2,7 @@
   "name": "fun-with-gpt-3",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://abepena.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.0.24"
   }
