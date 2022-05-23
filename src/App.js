@@ -9,7 +9,7 @@ function App() {
   return (
     <div
       className="min-h-screen min-w-screen bg-orange-50 bg-gradient-to-r from-purple-500 
-    to-indigo-500 py-5"
+    to-indigo-500 py-12"
     >
       <div className="container mx-auto px-8 xl:max-w-4xl">
         <h1 className="text-3xl font-bold text-white text-shadow pb-3">

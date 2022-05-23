@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
 import uuid from "react-uuid";
-import Select from 'react-select'
+import Select from "react-select";
 
 const options = [
-  { value: 'text-davinci-002', label: 'text-davinci-002' },
-  { value: 'text-curie-001', label: 'text-curie-001' },
-  { value: 'text-babbage-001', label: 'text-babbage-001' },
-  { value: 'text-ada-001', label: 'text-ada-001' }
-]
+  { value: "text-davinci-002", label: "text-davinci-002" },
+  { value: "text-curie-001", label: "text-curie-001" },
+  { value: "text-babbage-001", label: "text-babbage-001" },
+  { value: "text-ada-001", label: "text-ada-001" },
+];
 
 function PromptForm({ responses, onResponsesChange }) {
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState("");
+  const [engine, setEngine] = useState(options[1]);
 
   //form async request handler
   const handleSubmit = async (e) => {
@@ -55,9 +56,10 @@ function PromptForm({ responses, onResponsesChange }) {
         id: uuid(),
         prompt: prompt,
         responseText: res.data.choices[0].text,
+        engine: engine.value,
       };
+
       onResponsesChange([response, ...responses]);
-      console.log(responses)
     } catch (err) {
       console.log(err);
     }
@@ -74,7 +76,20 @@ function PromptForm({ responses, onResponsesChange }) {
         handleSubmit(e);
       }}
     >
-        <Select options={options} />
+      <div className="form-group mb-2">
+        <label htmlFor="engine" className="font-bold text-gray-700 mb-2">
+          GPT-3 Engine
+        </label>
+        <Select
+          options={options}
+          onChange={setEngine}
+          defaultValue={options[1]}
+          name="engine"
+        />
+      </div>
+      <label htmlFor="prompt" className="font-bold text-gray-700 mt-4">
+        Prompt
+      </label>
       <textarea
         onChange={(e) => setPrompt(e.target.value)}
         className="form-control
@@ -90,7 +105,7 @@ function PromptForm({ responses, onResponsesChange }) {
         rounded
         transition
         ease-in-out
-        mt-4
+        mt-2
         focus:text-gray-700 focus:bg-white focus: border-2 focus:border-blue-600 focus:outline-none
       "
         id="prompt-text"
