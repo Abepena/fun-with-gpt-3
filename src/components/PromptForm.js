@@ -41,7 +41,7 @@ function PromptForm({ responses, onResponsesChange }) {
     try {
       //wait for response from API
       const res = await axios.post(
-        "https://api.openai.com/v1/engines/text-curie-001/completions",
+        `https://api.openai.com/v1/engines/${engine.value}/completions`,
         data,
         {
           headers: {
