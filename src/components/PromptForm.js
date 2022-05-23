@@ -106,7 +106,7 @@ function PromptForm({ responses, onResponsesChange }) {
         transition
         ease-in-out
         mt-2
-        focus:text-gray-700 focus:bg-white focus: border-2 focus:border-blue-600 focus:outline-none
+        focus:text-gray-700 focus:bg-white focus:border-2 focus:border-blue-600 focus:outline-none
       "
         id="prompt-text"
         rows="5"
